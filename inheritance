@@ -1,0 +1,52 @@
+
+In [2]: class a():
+   ...:     def __init__(self,name,age,salary):
+   ...:         self.__name=name
+   ...:         self.__age=age
+   ...:         self._salary=salary
+   ...:         self.__bonus=self._salary*10/100
+   ...:     def displaya(self):
+   ...:         print("name",self.__name)
+   ...:         print("age",self.__age)
+   ...:         print("salary=",self._salary)
+   ...:         print("bonus",self.__bonus)
+   ...:
+   ...:
+
+In [3]: class b(a):
+   ...:     def __init__(self,name,age,salary,dept):
+   ...:         super().__init__(name,age,salary)
+   ...:         self.dept=dept
+   ...:     def displayb(self):
+   ...:         print("department",self.dept)
+   ...:         print(self._salary)
+   ...:
+
+In [4]: vinoth=b("vino",22,200000,"mechanical")
+
+In [5]: vinoth.displayb()
+department mechanical
+200000
+
+In [6]: class c(b):
+   ...:     def __init__(self,name,age,salary,dept,degree):
+   ...:         super().__init__(name,age,salary,dept)
+   ...:         self.degree=degree
+   ...:     def displayc(self):
+   ...:         print(self.degree)
+   ...:         print(self._salary)
+   ...:
+
+In [7]: vinoth=c("kumar",22,120000,"mech","engineering")
+
+In [8]: vinoth.displayc()
+engineering
+120000
+
+In [9]: vinoth.displaya()
+name kumar
+age 22
+salary= 120000
+bonus 12000.0
+
+In [10]:
